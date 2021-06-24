@@ -1,0 +1,17 @@
+void read_table_game(){
+        table_game = vector<VP> (5);
+        Pos p;
+        for (int i = 0; i < board_rows(); ++i){
+            for (int j = 0; j < board_cols(); ++j){
+                p = {i,j};
+                Cell c = cell(p);
+                if (c.type == Soil) {
+                    table_game[0].push_back(p);
+                    if (c.bonus == Bread) table_game[2].push_back(p);
+                    else if (c.bonus == Leaf) table_game[3].push_back(p);
+                    else if (c.bonus == Seed) table_game[4].push_back(p);
+                }
+                else table_game[1].push_back(p);
+            }
+        }
+    }
